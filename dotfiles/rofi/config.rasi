@@ -1,0 +1,19 @@
+configuration{
+    modi: "run,drun";
+    icon-theme: "Papirus-Light";
+    show-icons: true;
+    terminal: "wezterm";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 﩯  Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
+}
+
+//@theme "catppuccin-mocha"
+
+@theme "/nix/store/f10pan90964ap51i0p05vxd5vwkq7vvf-rofi-1.7.5/share/rofi/themes/Arc-Dark.rasi"
