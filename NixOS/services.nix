@@ -17,5 +17,10 @@ services.printing.enable = true;
 # Bluetooth
 hardware.bluetooth.enable = true;
 
+#flatpak
+services.flatpak.enable = true;
 
+#qemu
+#virtualisation.qemu.guestAgent.enable = true;
+services.qemuGuest.enable = true;
 }

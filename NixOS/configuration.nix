@@ -38,6 +38,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "python-2.7.18.6"
   ];
+  nix.settings.experimental-features = [ "nix-command flakes" ];
 
 
   # GRUB/Plymouth
@@ -64,10 +65,16 @@
 
   # Hostname
   networking.hostName = "nixbox"; # Define your hostname.
-
+  networking.extraHosts =
+  ''
+    10.10.225.10  internal.thm
+  '';
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
-
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs; [ ibus-engines.bamboo ];
+  };
   # Select internationalisation properties.
   i18n.defaultLocale = "en_AU.UTF-8";
   # console = {
@@ -122,6 +129,8 @@
     enableSSHSupport = true;
   };
 
+  systemd.user.units.mongodb.enable = true;
+  #systemd.user.units.openssl.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

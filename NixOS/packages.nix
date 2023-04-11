@@ -3,14 +3,22 @@
 {
 
 # Packages
-environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsForQt5.kdenlive sublime4 audacity gnome.geary wezterm onlyoffice-bin emacs vscode gimp element-desktop spotify libreoffice-fresh obsidian obs-studio discord marktext gparted microsoft-edge blender krita gimp mpv alacritty aria2 nim tmate wget rustup go git python310 vte gcc btop ifuse bat exa cmake gnumake fzf yt-dlp tmux hyfetch tilix gzip pfetch neovim figlet virt-manager distrobox nushell libreoffice-fresh codeblocks vmware-workstation gnome.geary amberol gcolor3 fragments apostrophe blanket wike gnome-builder flatpak-builder jetbrains.pycharm-community gnome.gnome-terminal gnome.gnome-tweaks papirus-icon-theme neovide xfce.xfce4-settings 
+
+environment.systemPackages = with pkgs; [ 
+  tdesktop spotify slack audacity libsForQt5.kdenlive sublime4 audacity gnome.geary wezterm emacs vscode gimp element-desktop spotify libreoffice-fresh obsidian obs-studio discord marktext gparted microsoft-edge blender krita gimp mpv alacritty aria2 nim tmate wget rustup go git vte gcc btop ifuse bat exa cmake gnumake fzf yt-dlp tmux hyfetch tilix gzip pfetch  figlet virt-manager distrobox nushell libreoffice-fresh codeblocks vmware-workstation gnome.geary amberol gcolor3 fragments apostrophe blanket wike gnome-builder flatpak-builder jetbrains.pycharm-community gnome.gnome-terminal gnome.gnome-tweaks papirus-icon-theme neovide xfce.xfce4-settings 
   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
   htop
   dmenu #application launcher most people use
-  vim
-  gnvim
-  utm
+  (python39.withPackages(ps: with ps; [ pandas requests]))
+  neovim
+  ripgrep
+  tty-clock
+  jupyter
+  fd 
+  lazygit
+  sshfs
+  gnvim 
   zsh
   virt-manager
   qemu
@@ -19,13 +27,32 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   ungoogled-chromium 
   vscode
   jetbrains.webstorm
-  python39Packages.python
-  python27Full
+  #python39Packages.python
+  #python39Packages.pip
+  #python27Full
   leafpad
   xorg.xbacklight 
   obs-studio
+  openvpn
+  dbus
+  dbus
+  openconnect_openssl
+  pulseaudio
+  steam-run
+  libdrm 
+  libxkbcommon 
+  mesa 
+
   ### General utils ###
   bat
+  lf
+  dpkg
+  playonlinux
+  winetricks
+  wine
+  mono5
+  imagemagick
+  onlyoffice-bin
   ranger
   wlr-randr
   wlrctl
@@ -36,10 +63,20 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   tofi
   brightnessctl
   vokoscreen
+  grim
+  slurp
+  wf-recorder
+  terminus-nerdfont
+  wl-clipboard
+  cava
+  ytmdl
+  yewtube
+  surf
+  ###Finger print###
+  fprintd
 
   ### Exploitation ###
   metasploit
-  sqlmap
 
 
   # ### Forensics ###
@@ -51,7 +88,7 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   git
   p0f
   pdf-parser
-  python39Packages.binwalk
+  #python39Packages.binwalk
   sleuthkit
   # python310Packages.pysqlcipher3
   # volatility3
@@ -69,6 +106,7 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   masscan
   netcat
   nmap
+  rustscan
   ntopng
   sn0int
   sslsplit
@@ -126,6 +164,7 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   wfuzz
   wpscan
   zap
+  
 
   #Some things that I used to use
   mate.caja
@@ -146,6 +185,9 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   skypeforlinux
   scrot
   vscodium
+  redshift
+  geoclue2
+  gammastep
 
   #photo
   gimp-with-plugins
@@ -155,11 +197,14 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
   ibus-engines.bamboo
   
   #dev things
-  mongodb
+  mongodb-6_0
   nodejs-16_x
   openssl
   tmux
-
+  jdk8
+  docker
+  docker-client
+  samba
 ];
 
  # Blueman
@@ -197,7 +242,18 @@ environment.systemPackages = with pkgs; [ tdesktop spotify slack audacity libsFo
  # Starship
  programs.starship.enable = true;
 
+ #services.mongodb.enable = true;
+ #hardware.pulseaudio.enable = true;
+ 
+ # FingerPrint
+ services.fprintd.enable = true;
 
+ #services.fprintd.tod.enable = true;
+
+# services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;# (If the vfs0090 Driver does not work, use the following driver)
+
+ #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+virtualisation.docker.enable=true;
 }
 
 
