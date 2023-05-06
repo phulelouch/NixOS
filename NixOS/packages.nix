@@ -10,10 +10,15 @@ environment.systemPackages = with pkgs; [
   wget
   htop
   dmenu #application launcher most people use
-  (python39.withPackages(ps: with ps; [ pandas requests]))
+  (python39.withPackages(ps: with ps; [ requests dbus-python pip grip pyqt5 ]))
+  zoom-us
+  appimage-run
+  pandoc
+  glxinfo
   neovim
   ripgrep
   tty-clock
+  dbus
   jupyter
   fd 
   lazygit
@@ -21,7 +26,13 @@ environment.systemPackages = with pkgs; [
   gnvim 
   zsh
   virt-manager
-  qemu
+  #qemu
+  virtualbox
+  cabextract
+  wimlib
+  chntpw
+  cdrkit
+  aria
   chromium
   google-chrome
   ungoogled-chromium 

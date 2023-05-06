@@ -23,4 +23,9 @@ services.flatpak.enable = true;
 #qemu
 #virtualisation.qemu.guestAgent.enable = true;
 services.qemuGuest.enable = true;
+
+services.power-profiles-daemon.enable = false;
+# tlp for power managerment
+services.tlp.enable = true;
+
 }

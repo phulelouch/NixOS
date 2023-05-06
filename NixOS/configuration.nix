@@ -9,6 +9,7 @@
       ./services.nix
       ./pipewire.nix
 #      ./hyprland.nix
+#      ./vm.nix
       #./firefox.nix
     ];
 
@@ -148,3 +149,6 @@
     })
   ];
 }
+
+
+## Afterwards run this with sudo for file in /nix/store/*-system-path/bin/*; do ln -s "$file" "/bin/$(basename $file)"; done
