@@ -1,6 +1,18 @@
 { config, pkgs, ... }:
 
-{
+let
+  my-bamboo = pkgs.ibus-engines.bamboo.overrideAttrs (oldAttrs: {
+    version = "v0.8.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "BambooEngine";
+      repo = "ibus-bamboo";
+      rev = "c0001c571d861298beb99463ef63816b17203791";
+      sha256 = "sha256-7qU3ieoRPfv50qM703hEw+LTSrhrzwyzCvP9TOLTiDs=";
+    };
+    buildInputs = oldAttrs.buildInputs ++ [ pkgs.glib pkgs.gtk3 ];
+  });
+  hybridVaApiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+in {
   imports =
     [
       # Include the results of the hardware scan.
@@ -38,6 +50,7 @@
   nixpkgs.config.allowUnsupportedSystem = true;
   nixpkgs.config.permittedInsecurePackages = [
     "python-2.7.18.6"
+    "xpdf-4.04"
   ];
   nix.settings.experimental-features = [ "nix-command flakes" ];
 
@@ -69,13 +82,27 @@
   networking.extraHosts =
   ''
     10.10.225.10  internal.thm
+    127.0.0.1 xvideos.com 
+    0.0.0.0 twitter.com
+    0.0.0.0 youtube.com
+    #0.0.0.0 www.youtube.com
+    0.0.0.0 facebook.com
+    0.0.0.0 instagram.com
+    0.0.0.0 pornhub.com
+    0.0.0.0 nhentai.net
+    0.0.0.0 viet69.love
   '';
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
   i18n.inputMethod = {
     enabled = "ibus";
-    ibus.engines = with pkgs; [ ibus-engines.bamboo ];
+    ibus.engines = with pkgs.ibus-engines; [ my-bamboo ];
   };
+
+#i18n.inputMethod = {
+#    enabled = "fcitx5";
+#    fcitx.engines = with pkgs.fcitx-engines; [ unikey ];
+#};
   # Select internationalisation properties.
   i18n.defaultLocale = "en_AU.UTF-8";
   # console = {
@@ -88,7 +115,7 @@
   services.xserver.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   # Fonts
   fonts = {

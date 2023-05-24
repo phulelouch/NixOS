@@ -10,14 +10,17 @@ environment.systemPackages = with pkgs; [
   wget
   htop
   dmenu #application launcher most people use
-  (python39.withPackages(ps: with ps; [ requests dbus-python pip grip pyqt5 ]))
+  (python311.withPackages(ps: with ps; [ requests dbus-python pip grip pyqt5 argparse ]))
   zoom-us
   appimage-run
+  pkg-config
+  cairo
   pandoc
   glxinfo
   neovim
   ripgrep
   tty-clock
+  microsoft-edge
   dbus
   jupyter
   fd 
@@ -33,6 +36,9 @@ environment.systemPackages = with pkgs; [
   chntpw
   cdrkit
   aria
+  xpdf
+  docker-compose
+  tree
   chromium
   google-chrome
   ungoogled-chromium 
@@ -199,13 +205,17 @@ environment.systemPackages = with pkgs; [
   redshift
   geoclue2
   gammastep
+  copyq
+  libnotify
+  gnome.pomodoro
+  firefox
 
   #photo
   gimp-with-plugins
   
 
   #vietnamese, still not figure that out
-  ibus-engines.bamboo
+  #ibus-engines.bamboo
   
   #dev things
   mongodb-6_0
