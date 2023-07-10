@@ -83,14 +83,20 @@ in {
   ''
     10.10.225.10  internal.thm
     127.0.0.1 xvideos.com 
+    0.0.0.0 www.xvideos.com
     0.0.0.0 twitter.com
     0.0.0.0 youtube.com
-    #0.0.0.0 www.youtube.com
+    0.0.0.0 www.youtube.com
     0.0.0.0 facebook.com
+    0.0.0.0 www.facebook.com
     0.0.0.0 instagram.com
+    0.0.0.0 www.instagram.com
+    0.0.0.0 www.nettruyenplus.com
+    0.0.0.0 nettruyenplus.com
     0.0.0.0 pornhub.com
     0.0.0.0 nhentai.net
-    0.0.0.0 viet69.love
+    0.0.0.0 viet69.vc
+    10.10.218.2 internal.thm
   '';
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";

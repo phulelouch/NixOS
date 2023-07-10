@@ -206,18 +206,27 @@ environment.systemPackages = with pkgs; [
   geoclue2
   gammastep
   copyq
-  libnotify
+  libnotify 
+  libstdcxx5
+  tor
+  lsof
   gnome.pomodoro
   firefox
+  jetbrains.pycharm-professional
+  vlc
+  davinci-resolve
 
   #photo
   gimp-with-plugins
+  hyprpaper
+  exiftool
   
 
   #vietnamese, still not figure that out
   #ibus-engines.bamboo
   
   #dev things
+  virtualenv
   mongodb-6_0
   nodejs-16_x
   openssl
@@ -260,6 +269,22 @@ environment.systemPackages = with pkgs; [
  # Java
  programs.java.enable = true;
 
+ # TOR
+
+
+services.tor = {
+  enable = true;
+  client.enable = true;
+  settings = {
+    ControlPort = 9051;  # Notice the absence of quotes around 9051
+    HashedControlPassword = "16:3D5678E1F1342D49604FDE5F01CE3384927B0C8C9B76303F49972BE46D";  # replace with your hashed password
+  };
+};
+
+
+
+
+
  # Starship
  programs.starship.enable = true;
 
@@ -275,6 +300,13 @@ environment.systemPackages = with pkgs; [
 
  #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 virtualisation.docker.enable=true;
+
+
+services.openvpn.servers = {
+    tryhackme = { config = '' config /home/alone/Downloads/tryhackme.ovpn ''; };
+  };
+
+
 }
 
 
