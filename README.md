@@ -1,7 +1,7 @@
 # NixOS
 NixOS, hyprland, took me 3 days, enjoy
 
-![pkgs.nix](https://raw.githubusercontent.com/phulelouch/NixOS/main/20230227_19h07m12s_grim.png)
+![pkgs.nix](https://raw.githubusercontent.com/phulelouch/NixOS/main/screenshot.png)
 
 
 Situation: You play Tryhackme or HTB you can not do a reverse shell from outside to host through openvpn and you can not create a reverse shell from the machine -> host (nixos machine)
