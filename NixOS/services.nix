@@ -3,7 +3,10 @@
 {
 
 # NetworkManager
-networking.networkmanager.enable = true;
+networking.networkmanager = {
+    enable = true;
+    wifi.scanRandMacAddress = false;
+  };
 
 # Enable the OpenSSH daemon.
 services.openssh.enable = true;

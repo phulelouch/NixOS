@@ -58,7 +58,7 @@ in {
   # GRUB/Plymouth
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   # boot.kernelPackages = pkgs.linuxPackages_lqx;
   # boot.loader.grub.enable = true;
@@ -81,16 +81,16 @@ in {
   networking.hostName = "nixbox"; # Define your hostname.
   networking.extraHosts =
   ''
-    10.10.225.10  internal.thm
+    10.10.149.18 internal.thm
     127.0.0.1 xvideos.com 
     0.0.0.0 www.xvideos.com
     0.0.0.0 twitter.com
-    0.0.0.0 youtube.com
-    0.0.0.0 www.youtube.com
-    0.0.0.0 facebook.com
-    0.0.0.0 www.facebook.com
-    0.0.0.0 instagram.com
-    0.0.0.0 www.instagram.com
+    #0.0.0.0 youtube.com
+    #0.0.0.0 www.youtube.com
+    #0.0.0.0 facebook.com
+    #0.0.0.0 www.facebook.com
+    #0.0.0.0 instagram.com
+    #0.0.0.0 www.instagram.com
     0.0.0.0 www.nettruyenplus.com
     0.0.0.0 nettruyenplus.com
     0.0.0.0 pornhub.com

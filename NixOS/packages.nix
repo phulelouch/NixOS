@@ -56,6 +56,7 @@ environment.systemPackages = with pkgs; [
   openconnect_openssl
   pulseaudio
   steam-run
+  networkmanagerapplet
   libdrm 
   libxkbcommon 
   mesa 
@@ -68,6 +69,7 @@ environment.systemPackages = with pkgs; [
   winetricks
   wine
   mono5
+  neofetch
   imagemagick
   onlyoffice-bin
   ranger
@@ -113,6 +115,11 @@ environment.systemPackages = with pkgs; [
 
   ### Hardware ###
   apktool
+  linuxKernel.packages.linux_zen.rtl88x2bu
+
+  ### Backup ###
+  timeshift
+
 
   ### Recon ###
   cloudbrute
@@ -190,6 +197,7 @@ environment.systemPackages = with pkgs; [
   alacritty
   rofi
   feh
+  aircrack-ng
   gnomeExtensions.pop-shell
   gnome.gnome-tweaks
   gnome.gnome-shell-extensions
@@ -214,7 +222,7 @@ environment.systemPackages = with pkgs; [
   firefox
   jetbrains.pycharm-professional
   vlc
-  davinci-resolve
+  #davinci-resolve
 
   #photo
   gimp-with-plugins
@@ -227,8 +235,8 @@ environment.systemPackages = with pkgs; [
   
   #dev things
   virtualenv
-  mongodb-6_0
-  nodejs-16_x
+  #mongodb-6_0
+  #nodejs-16_x
   openssl
   tmux
   jdk8
@@ -258,7 +266,7 @@ environment.systemPackages = with pkgs; [
 
  # ZSH
  programs.zsh.enable = true;
- programs.zsh.ohMyZsh.enable = true;
+ #programs.zsh.ohMyZsh.enable = true;
  programs.zsh.autosuggestions.enable = true;
  programs.zsh.syntaxHighlighting.enable = true;
  #programs.zsh.ohMyZsh.plugins = [ git ]
@@ -302,9 +310,9 @@ services.tor = {
 virtualisation.docker.enable=true;
 
 
-services.openvpn.servers = {
-    tryhackme = { config = '' config /home/alone/Downloads/tryhackme.ovpn ''; };
-  };
+#services.openvpn.servers = {
+#    tryhackme = { config = '' config /home/alone/Downloads/tryhackme.ovpn ''; };
+#  };
 
 
 }
